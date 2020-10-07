@@ -1,0 +1,36 @@
+   
+
+  <div class="navbar-container">
+    <ul id="list">
+      <li class="nav-item nav-item1 ">MEAN App</li>
+
+      <li class="nav-item nav-item2"><a  [routerLinkActive]="['active']" 
+        [routerLinkActiveOptions]="{exact:true}"
+        [routerLink]="['home']">HOME</a></li>
+
+      <li *ngIf="authService.hasTokenExpired()" class="nav-item nav-item3"><a [routerLinkActive]="['active']" 
+        [routerLinkActiveOptions]="{exact: true}"
+         [routerLink]="['login']">LOGIN</a></li>
+
+      <li *ngIf="authService.hasTokenExpired()" class="nav-item nav-item4"><a [routerLinkActiveOptions]="{exact:true}"
+         [routerLinkActive]="['active']" 
+         [routerLink]="['register']">REGISTER</a></li>
+
+         <li *ngIf="!authService.hasTokenExpired()" class="nav-item nav-item6"><a [routerLinkActiveOptions]="{exact:true}"
+          [routerLinkActive]="['active']" 
+          [routerLink]="['dashboard']">DASHBOARD</a></li>
+
+          <li *ngIf="!authService.hasTokenExpired()" class="nav-item nav-item3"><a [routerLinkActive]="['active']" 
+            [routerLinkActiveOptions]="{exact: true}"
+             [routerLink]="['profile']">PROFILE</a></li>
+
+      <li *ngIf="!authService.hasTokenExpired()" class="nav-item nav-item4" (click)="onLogout()">LOGOUT</li>
+    
+     
+
+        
+    </ul>
+  </div>
+
+
+
